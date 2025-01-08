@@ -25,6 +25,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <a href="/Transaction"> Enact Transaction</a>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
