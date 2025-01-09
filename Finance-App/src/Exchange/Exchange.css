@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    --exchange-container-width: 1650;
+}
+
+
+.exchange-container {
+    border-style: solid;
+    border-color: orange;
+    border-radius: 25px;
+    border-width: 4px;
+    align-self: center;
+    display: block;
+    width: var(--exchange-container-width);
+    height: 500px;
+    background-color: white;
+}
+.exchange-form {
+    border-style: solid;
+    border-color: orange;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-width: 4px;
+    display: block;
+    width: var(--exchange-container-width);
+    height: 409px;
+    margin-left: -4px;
+    margin-top: 0px;
+    background-color: #b4a7d6ff;
+}
+#exchange-form {
+    font-size: 2rem;
+    color: black
+}
+.input-box {
+    border-style: solid;
+    border-color: orange;
+    border-radius: 5px;
+    border-width: 4px;
+    width: 250px;
+    height: 30px;
+    background-color: #b4a7d6ff;
+}
+.radio-checkbox {
+    outline-color: orange;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}

@@ -29,7 +29,7 @@ const Transaction = () => {
         <label for = "transaction-recurring-yes">Yes</label>
         <br/>
 
-        <input type = "submit" value="Submit"/>
+        <input type = "submit" value="Deposit"/>
       </form>
     </div>
     </>
