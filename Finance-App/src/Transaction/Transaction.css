@@ -1,15 +1,17 @@
 *{
     margin: 0;
-    --transaction-container-width: 1650;
+    --transaction-container-width: 550px;
+    --transaction-container-border_radius: 25px;
+    --keji-lavender: #b4a7d6ff;
+    --keji-purple: #351c75ff;
 }
 
 
 .transaction-container {
     border-style: solid;
     border-color: orange;
-    border-radius: 25px;
+    border-radius: var(--transaction-container-border_radius);
     border-width: 4px;
-    align-self: center;
     display: block;
     width: var(--transaction-container-width);
     height: 500px;
@@ -18,16 +20,23 @@
 .transaction-form {
     border-style: solid;
     border-color: orange;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: var(--transaction-container-border_radius);;
+    border-bottom-right-radius: var(--transaction-container-border_radius);;
     border-width: 4px;
-    display: block;
     width: var(--transaction-container-width);
     height: 409px;
     margin-left: -4px;
     margin-top: 0px;
-    background-color: #b4a7d6ff;
+    background-color: var(--keji-lavender);
 }
+.input-line {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    padding-top: 10px;
+    padding-left: 47px;
+}
+
 #transaction-form {
     font-size: 2rem;
     color: black
@@ -39,10 +48,31 @@
     border-width: 4px;
     width: 250px;
     height: 30px;
+    margin-top: 8px;
+    padding-left: 5px;
     background-color: white;
+    color: black;
 }
-.radio-checkbox {
+.stacked-radio-answer-list {
+    display: inline;
+    margin-top: 3px;
+    line-height: 15px;
+}
+.transaction-radio-answer {
+    font-size: 1.25rem;
+}
+input[type=radio] {
     outline-color: orange;
+}
+input[type=submit] {
+    background-color: orange;
+    border-color: var(--keji-purple);
+    border-width: 3px;
+    border-radius: 15px;
+    width: 125px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin-top: 110px;
 }
 
 h1 {
