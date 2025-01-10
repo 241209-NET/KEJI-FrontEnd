@@ -22,6 +22,9 @@ const Login = () => {
     navigate("/signup");
   }
 
+  const handleHomepage = () => {
+    navigate("/homepage");
+  }
   return (
     <div className="login-container">
       <div className="login-card">
@@ -49,7 +52,7 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="login-button">Log In</button>
+          <button type="submit" className="login-button" onClick={handleHomepage}>Log In</button>
         </form>
         
         <div id="change">

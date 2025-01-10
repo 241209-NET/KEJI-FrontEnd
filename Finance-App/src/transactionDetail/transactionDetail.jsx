@@ -1,4 +1,3 @@
-// TransactionDetailPage.js
 import "./TransactionDetail.css";
 
 const TransactionDetail = () => {
