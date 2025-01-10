@@ -27,7 +27,7 @@
     height: 409px;
     margin-left: -4px;
     margin-top: 0px;
-    background-color: var(--keji-lavender);
+    background-color: white/*var(--keji-lavender);*/
 }
 #statement-body {
     font-size: 2rem;
@@ -48,10 +48,20 @@
     background-color: var(--keji-purple);
     width: var(--statement-container-width);
     height: 25px;
-    margin-left: -4px;
-    margin-top: 20px;
     color: white;
     font-size: 1rem;
+}
+.activity-background {
+    display: flex;
+    border-style: solid;
+    border-color: orange;
+    border-width: 4px;
+    background-color: var(--keji-lavender);
+    width: var(--statement-container-width);
+    height: 25px;
+    color: black;
+    font-size: 1rem;
+    margin-top:-4px;
 }
 .activity-info{
     border-style: inherit;
@@ -61,7 +71,6 @@
     font-size: inherit;
     margin-top: -4px;
     margin-left: -4px;
-
 }
 #activity-date {
     width: 100px;
@@ -87,4 +96,8 @@ h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     color: black;
+}
+
+ul {
+    list-style-type: none;
 }
