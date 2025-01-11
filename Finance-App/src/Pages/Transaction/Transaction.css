@@ -1,32 +1,7 @@
 *{
     margin: 0;
-    --transaction-container-width: 550px;
-    --transaction-container-border_radius: 25px;
 }
 
-
-.transaction-container {
-    border-style: solid;
-    border-color: orange;
-    border-radius: var(--transaction-container-border_radius);
-    border-width: 4px;
-    display: block;
-    width: var(--transaction-container-width);
-    height: 500px;
-    background-color: white;
-}
-.transaction-form {
-    border-style: solid;
-    border-color: orange;
-    border-bottom-left-radius: var(--transaction-container-border_radius);;
-    border-bottom-right-radius: var(--transaction-container-border_radius);;
-    border-width: 4px;
-    width: var(--transaction-container-width);
-    height: 409px;
-    margin-left: -4px;
-    margin-top: 0px;
-    background-color: var(--keji-lavender);
-}
 .input-line {
     display: flex;
     justify-content: space-between;
@@ -35,10 +10,6 @@
     padding-left: 47px;
 }
 
-#transaction-form {
-    font-size: 2rem;
-    color: black
-}
 .input-box {
     border-style: solid;
     border-color: orange;
@@ -59,33 +30,17 @@
 .transaction-radio-answer {
     font-size: 1.25rem;
 }
-input[type=radio] {
-    outline-color: orange;
-}
 input[type=submit] {
     background-color: orange;
     border-color: var(--keji-purple);
     border-width: 3px;
     border-radius: 15px;
     width: 125px;
-    height: 40px;
+    height: 45px;
     font-size: 1.5rem;
-    margin-top: 110px;
+    margin: auto;
 }
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: black;
-}
-
-p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+input[type=submit]:hover {
+    background-color: darkorange;
+    border-color: darkblue;
 }

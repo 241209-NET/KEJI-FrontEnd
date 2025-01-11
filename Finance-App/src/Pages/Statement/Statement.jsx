@@ -4,19 +4,19 @@ const Statement = () => {
   return (
     <>
       <Header/>
-      <div class = "statement-container">
+      <div class = "primary-container">
         <h2>Statement for Month, Year</h2>
-        <div class = "statement-body" id = "statement-body">
+        <div class = "secondary-container" id = "statement-body">
           <div class = "statement-line">
-            <label for = "starting-balance">Starting Balance:</label>
+            <label for = "starting-balance" class = "minor-field-label">Starting Balance:</label>
             <section name = "starting-balance">$$$</section>
           </div>
           <div class = "statement-line">
-            <label for = "deposits-withdrawals">Deposits & Withdrawals:</label>
+            <label for = "deposits-withdrawals" class = "minor-field-label">Deposits & Withdrawals:</label>
             <section name = "deposits-withdrawals">$$$</section>
           </div>
           <div class = "statement-line">
-            <label for = "ending-balance">Ending Balance:</label>
+            <label for = "ending-balance" class = "minor-field-label">Ending Balance:</label>
             <section name = "ending-balance">$$$</section>
           </div>
           <div class = "activity-heading" style = {{ marginLeft: -4, marginTop: 20}}>
