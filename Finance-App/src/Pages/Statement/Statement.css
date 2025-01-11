@@ -3,6 +3,7 @@
 }
 #statement-body {
     font-size: 2rem;
+    color: black;
 }
 .statement-line {
     display: flex;

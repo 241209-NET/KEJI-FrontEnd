@@ -26,6 +26,9 @@
     float: right;
     cursor: pointer;
     font-size: 1.5rem;
+    width:fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
     min-height: var(--nav-bar-height);
 }
 .nav-links li button:hover {
