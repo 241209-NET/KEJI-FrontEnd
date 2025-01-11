@@ -26,41 +26,42 @@ const Login = () => {
     navigate("/homepage");
   }
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1 className="login-title">Keji Banking App</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="Username">Username</label>
+    <>
+      <div class = "header"/>
+      <div class="primary-container">
+        <h2>Keji Banking App</h2>
+        <form onSubmit={handleSubmit}class="secondary-container">
+          <div class="input-line">
+            <label htmlFor="Username" class="field-label">Username</label>
             <input
               type="Username"
               id="Username"
+              class="input-box"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter your Username"
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div class="input-line">
+            <label htmlFor="password" class="field-label">Password</label>
             <input
               type="password"
               id="password"
+              class="input-box"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               required
             />
           </div>
-          <button type="submit" className="login-button" onClick={handleHomepage}>Log In</button>
-        </form>
-        
-        <div id="change">
+          <button type="submit" onClick={handleHomepage} id = "login-button">Log In</button>
+
           <button className="reset-button" onClick={handleReset}>Forgot Username/Password? </button>
           <button className="reset-button" onClick={handleSignup}>Not Enrolled? Sign Up Now </button>
-        </div>
+        </form>
       </div>
-    </div>
+    </>
   );
 };
 

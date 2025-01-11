@@ -2,20 +2,30 @@ import "./signup.css";
 
 const SignUp = () => {
   return (
-    <div className="reset-container">
-      <form className="reset-form">
-        <label htmlFor="email">Enter your Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your Email Address" required />
+    <>
+      <div class = "header"/>
+      <div className="primary-container">
+        <h2>Create an Account</h2>
+        <form className="secondary-container">
+          <div class="input-line">
+            <label htmlFor="email"class="field-label">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your Email Address"class="input-box" required />
+          </div>
 
-        <label htmlFor="username">Enter your Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your Username" required />
+          <div class="input-line">
+            <label htmlFor="username"class="field-label">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username" class="input-box"required />
+          </div>
 
-        <label htmlFor="password">Enter your Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your Password" required />
+          <div class="input-line">
+            <label htmlFor="password"class="field-label">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password"class="input-box" required />
+          </div>
 
-        <button type="submit" className="reset-submit">Submit</button>
-      </form>
-    </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </>
   );
 };
 

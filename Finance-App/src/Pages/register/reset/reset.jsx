@@ -11,13 +11,19 @@ const Reset = () => {
   };
 
   return (
-      <div className="reset-container">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Enter your Email Address:</label>
-          <input type="email" id="email" name="email" placeholder="Enter your Email Address"required />
+    <>
+      <div class="header"/>
+      <div className="primary-container">
+        <h2>Reset Username/Password</h2>
+        <form onSubmit={handleSubmit}className="secondary-container">
+          <div class="input-line">
+            <label htmlFor="email" class="field-label">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your Email Address" class="input-box" required />
+            </div>
           <button type="submit">Submit</button>
         </form>
       </div>
+    </>
   );
 };
 

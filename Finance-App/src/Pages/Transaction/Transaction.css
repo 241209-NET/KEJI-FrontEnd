@@ -6,17 +6,3 @@
 .transaction-radio-answer {
     font-size: 1.25rem;
 }
-input[type=submit] {
-    background-color: orange;
-    border-color: var(--keji-purple);
-    border-width: 3px;
-    border-radius: 15px;
-    width: 125px;
-    height: 45px;
-    font-size: 1.5rem;
-    margin: auto;
-}
-input[type=submit]:hover {
-    background-color: darkorange;
-    border-color: darkblue;
-}
