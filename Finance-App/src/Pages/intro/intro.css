@@ -1,12 +1,9 @@
-.home-container {
-  font-family: Arial, sans-serif;
-}
-
 .hero-section {
-  background: linear-gradient(to right, #4caf50, #81c784);
+  background: linear-gradient(to right, var(--keji-dark-purple), var(--keji-purple));
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .hero-content h1 {
@@ -20,27 +17,26 @@
 }
 
 .cta-button {
-  background-color: #ffffff;
-  color: #4caf50;
-  padding: 15px 30px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: orange;
+  border-color: var(--keji-purple);
+  border-width: 3px;
+  border-radius: 15px;
+  width: 125px;
+  height: 45px;
+  font-size: 1.5rem;
+  margin: auto;
 }
-
 .cta-button:hover {
-  background-color: #f1f1f1;
+  background-color: darkorange;
+  border-color: darkblue;
 }
 
 .features-section {
-  padding: 40px 20px;
+  padding: 20px;
   text-align: center;
 }
-
 .features-section h2 {
-  color: #4caf50;
+  color: orange;
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -49,12 +45,13 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  overflow: hidden;
   margin-top: 20px;
 }
 
 .feature-item {
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  background-color: orange;
+  border-radius: 15px;
   padding: 20px;
   width: 30%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -63,28 +60,23 @@
 
 .feature-item h3 {
   font-size: 1.5rem;
-  color: #4caf50;
+  color: white;
   margin-bottom: 10px;
 }
 
 .feature-item p {
-  font-size: 1rem;
-  color: #333;
+  font-size: 1.1rem;
+  color: black;
 }
 
 .cta-section {
-  background-color: #4caf50;
+  background: linear-gradient(to right, var(--keji-dark-purple), var(--keji-purple));
   color: white;
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px;
+  max-width: 100vw;
 }
 
 .cta-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.cta-section .cta-button {
-  background-color: #ffffff;
-  color: #4caf50;
+  color: white;
 }

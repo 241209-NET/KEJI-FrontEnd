@@ -10,7 +10,7 @@ const Intro = () => {
   }
 
   return (
-    <div className="home-container">
+    <div class="header">
       <header className="hero-section">
         <div className="hero-content">
           <h1>Welcome to Keji Banking App</h1>
