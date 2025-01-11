@@ -5,26 +5,25 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     const handleHome = () => {
-        navigate('/homepage');
+        navigate('/Homepage');
     };
-
     const handleAccount = () => {
-        navigate('/account');
+        navigate('/Account');
     };
-
     const handleActivity = () => {
-        navigate('/activity');
+        navigate('/Activity');
     };
-
     const handleStatement= () => {
-        navigate('/statement');
+        navigate('/Statement');
     };
     const handleTransaction= () => {
         navigate('/Transaction');
     };
-
     const handleGoals= () => {
-        navigate('/goal');
+        navigate('/Goal');
+    };
+    const handleExchange= () => {
+        navigate('/Exchange');
     };
 
     return (
@@ -36,6 +35,7 @@ const NavBar = () => {
                 <li><button onClick={handleStatement}>Statements</button></li>
                 <li><button onClick={handleTransaction}>Make Transaction</button></li>
                 <li><button onClick={handleGoals}>Goals</button></li>
+                <li><button onClick={handleExchange}>Exchange</button></li>
                 <li><img name = "logo" class = "logo" src={logo} alt="Logo"/><label for = "logo" class = "logo-label">Keji</label></li>
             </ul>
         </nav>
