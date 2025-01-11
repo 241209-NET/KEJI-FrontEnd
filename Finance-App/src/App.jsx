@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Account from './Pages/Account/Account.jsx'
-import Activity from './Pages/Transaction/Transaction.jsx';
 import Exchange from './Pages/Exchange/Exchange.jsx';
 import Homepage from './Pages/homepage/homepage.jsx';
 import Intro from './Pages/intro/intro.jsx';
@@ -20,7 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Intro />} />
         <Route path='/Account' element={<Account />} />
-        <Route path='/Activity' element={<Activity />} />
+        <Route path='/Activity' element={<TransactionDetails />} />
         <Route path='/Exchange' element={<Exchange />} />
         <Route path='/Homepage' element={<Homepage />} />
         <Route path='/Login' element={<Login />} />
