@@ -51,12 +51,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 h2 {
-  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: black;
+  place-self: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -108,5 +108,26 @@ h2 {
   font-size: 1.5rem;
   margin-top:auto;
   margin-bottom:auto;
+  color: black;
+}
+
+.input-line {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  padding-top: 10px;
+  padding-left: 47px;
+}
+
+.input-box {
+  border-style: solid;
+  border-color: orange;
+  border-radius: 5px;
+  border-width: 4px;
+  width: 250px;
+  height: 30px;
+  margin-top: 8px;
+  padding-left: 5px;
+  background-color: white;
   color: black;
 }

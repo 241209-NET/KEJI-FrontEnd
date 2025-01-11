@@ -6,7 +6,7 @@ const Transaction = () => {
     <>
       <Header/>
       <div class = "primary-container">
-        <h2>Make New Deposit in Account #</h2>
+      <h2>Make New Deposit</h2>
         <form class = "secondary-container" id = "transaction-form">
           <div class = "input-line">
             <label for = "transaction-amount" class = "field-label">Amount: </label>
