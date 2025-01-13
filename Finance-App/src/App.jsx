@@ -1,25 +1,34 @@
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Intro from './intro/intro.jsx';
-// import Login from './register/login/login.jsx';
-// import SignUp from './register/signup/signup.jsx';
-// import Reset from './register/reset/reset.jsx';
-//import Homepage from './homepage/homepage.jsx';
-import TransactionDetails from './transactionDetail/transactionDetail.jsx';
-//import BankAccount from './bankAccount/bankAccount.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Account from './Pages/Account/Account.jsx'
+import Exchange from './Pages/Exchange/Exchange.jsx';
+import Homepage from './Pages/homepage/homepage.jsx';
+import Intro from './Pages/intro/intro.jsx';
+import Login from './Pages/register/login/login.jsx';
+import Reset from './Pages/register/reset/reset.jsx';
+import SignUp from './Pages/register/signup/signup.jsx';
+import Statement from './Pages/Statement/Statement.jsx';
+import Transaction from './Pages/Transaction/Transaction.jsx';
+import TransactionDetails from './Pages/transactionDetail/transactionDetail.jsx';
+//import Goals from './Pages/Goals/Goal.jsx';
 
 function App() {
+
   return (
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Intro />} />
-    //     <Route path="/login" element={<Login />} />
-    //     <Route path='/signup' element={<SignUp />} />
-    //     <Route path='/reset' element={<Reset />} />
-    //   </Routes>
-    // </Router>
-    // <Homepage />
-    <TransactionDetails />
-    // <BankAccount />
+
+    <Router>
+      <Routes>
+        <Route path='/' element={<Intro />} />
+        <Route path='/Account' element={<Account />} />
+        <Route path='/Activity' element={<TransactionDetails />} />
+        <Route path='/Exchange' element={<Exchange />} />
+        <Route path='/Homepage' element={<Homepage />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Reset' element={<Reset />} />
+        <Route path='/Signup' element={<SignUp />} />
+        <Route path='/Statement' element={<Statement />} />
+        <Route path='/Transaction' element={<Transaction />} />
+      </Routes>
+    </Router>
 
   );
 }

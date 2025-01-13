@@ -1,0 +1,49 @@
+#root {
+    --nav-bar-height: 8vh;
+}
+
+.header {
+    background-color: var(--keji-purple);
+    width: 100vw;
+    height: 30vh;
+}
+
+.nav-bar {
+    background-color: orange;
+    width: 100vw;
+    max-width: 100vw;
+    height: var(--nav-bar-height);
+}
+
+.nav-links {
+    list-style: none;
+    background-color: orange;
+}
+
+.nav-links li button {
+    background-color: orange;
+    border-radius: 0px;
+    float: right;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width:fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: var(--nav-bar-height);
+}
+.nav-links li button:hover {
+    background-color: darkorange;
+}
+
+.logo {
+    margin-top: 1vh;
+    max-height: 6vh;
+    margin-left: -5vh
+}
+.logo-label {
+    position: absolute;
+    color: white;
+    font-size: 5vh;
+    margin-left: 2vh;
+    margin-top: 0.5vh;
+}
