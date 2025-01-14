@@ -1,25 +1,111 @@
+import { useEffect, useState } from "react";
 import "./signup.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const registeUser = async () => {
+      try {
+        const res = await axios.post(`http://localHost:5023/register`, {
+          userName: username,
+          email: email,
+          password: password,
+        });
+
+        setUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (isSubmitted) registeUser();
+  }, [isSubmitted]);
+
+  useEffect(() => {
+    if (user) createSuccess();
+  }, [user]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Creating User...");
+    setIsSubmitted(true);
+  };
+
+  const createSuccess = () => {
+    navigate("/Login");
+  };
+
+  const handleEmailInputChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleUsernameInputChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordInputChange = (e) => {
+    setPassword(e.target.value);
+  };
   return (
     <>
-      <div class = "header"/>
+      <div class="header" />
       <div className="primary-container">
         <h2>Create an Account</h2>
-        <form className="secondary-container">
+        <form onSubmit={handleSubmit} className="secondary-container">
           <div class="input-line">
-            <label htmlFor="email"class="field-label">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your Email Address"class="input-box" required />
+            <label htmlFor="email" class="field-label">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleEmailInputChange}
+              placeholder="Enter your Email Address"
+              class="input-box"
+              required
+            />
           </div>
 
           <div class="input-line">
-            <label htmlFor="username"class="field-label">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your Username" class="input-box"required />
+            <label htmlFor="username" class="field-label">
+              Username:
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={handleUsernameInputChange}
+              placeholder="Enter your Username"
+              class="input-box"
+              required
+            />
           </div>
 
           <div class="input-line">
-            <label htmlFor="password"class="field-label">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your Password"class="input-box" required />
+            <label htmlFor="password" class="field-label">
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handlePasswordInputChange}
+              placeholder="Enter your Password"
+              class="input-box"
+              required
+            />
           </div>
 
           <button type="submit">Sign Up</button>

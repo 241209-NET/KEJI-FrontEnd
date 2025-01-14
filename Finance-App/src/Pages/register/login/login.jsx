@@ -1,38 +1,48 @@
-import { useState } from 'react';
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
-
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [attempLogIn, setAttempt] = useState(false);
+
+  useEffect(() => {
+    try {
+      
+    } catch (error) {
+      console.log(error);
+    }
+  },[attempLogIn])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login Submitted', { username, password });
-    // Add your API call or authentication logic here
+    setAttempt(true)
   };
 
   const handleReset = () => {
     navigate("/reset");
-  }
+  };
 
   const handleSignup = () => {
     navigate("/signup");
-  }
+  };
 
   const handleHomepage = () => {
     navigate("/homepage");
-  }
+  };
   return (
     <>
-      <div class = "header"/>
+      <div class="header" />
       <div class="primary-container">
         <h2>Keji Banking App</h2>
-        <form onSubmit={handleSubmit}class="secondary-container">
+        <form onSubmit={handleSubmit} class="secondary-container">
           <div class="input-line">
-            <label htmlFor="Username" class="field-label">Username</label>
+            <label htmlFor="Username" class="field-label">
+              Username
+            </label>
             <input
               type="Username"
               id="Username"
@@ -44,7 +54,9 @@ const Login = () => {
             />
           </div>
           <div class="input-line">
-            <label htmlFor="password" class="field-label">Password</label>
+            <label htmlFor="password" class="field-label">
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -55,10 +67,16 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" onClick={handleHomepage} id = "login-button">Log In</button>
+          <button type="submit" id="login-button">
+            Log In
+          </button>
 
-          <button className="reset-button" onClick={handleReset}>Forgot Username/Password? </button>
-          <button className="reset-button" onClick={handleSignup}>Not Enrolled? Sign Up Now </button>
+          <button className="reset-button" onClick={handleReset}>
+            Forgot Username/Password?{" "}
+          </button>
+          <button className="reset-button" onClick={handleSignup}>
+            Not Enrolled? Sign Up Now{" "}
+          </button>
         </form>
       </div>
     </>
