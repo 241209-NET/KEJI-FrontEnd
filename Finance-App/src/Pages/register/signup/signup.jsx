@@ -22,7 +22,7 @@ const SignUp = () => {
 
         setUser(res.data);
       } catch (error) {
-        console.log(error);
+        console.log(`It looks like there was a ${error.message} our server might be down at the moment`);
       }
     };
 
@@ -56,12 +56,12 @@ const SignUp = () => {
   };
   return (
     <>
-      <div class="header" />
+      <div className="header" />
       <div className="primary-container">
         <h2>Create an Account</h2>
         <form onSubmit={handleSubmit} className="secondary-container">
-          <div class="input-line">
-            <label htmlFor="email" class="field-label">
+          <div className="input-line">
+            <label htmlFor="email" className="field-label">
               Email:
             </label>
             <input
@@ -71,13 +71,13 @@ const SignUp = () => {
               value={email}
               onChange={handleEmailInputChange}
               placeholder="Enter your Email Address"
-              class="input-box"
+              className="input-box"
               required
             />
           </div>
 
-          <div class="input-line">
-            <label htmlFor="username" class="field-label">
+          <div className="input-line">
+            <label htmlFor="username" className="field-label">
               Username:
             </label>
             <input
@@ -87,13 +87,13 @@ const SignUp = () => {
               value={username}
               onChange={handleUsernameInputChange}
               placeholder="Enter your Username"
-              class="input-box"
+              className="input-box"
               required
             />
           </div>
 
-          <div class="input-line">
-            <label htmlFor="password" class="field-label">
+          <div className="input-line">
+            <label htmlFor="password" className="field-label">
               Password:
             </label>
             <input
@@ -103,7 +103,7 @@ const SignUp = () => {
               value={password}
               onChange={handlePasswordInputChange}
               placeholder="Enter your Password"
-              class="input-box"
+              className="input-box"
               required
             />
           </div>

@@ -5,21 +5,35 @@ import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [attempLogIn, setAttempt] = useState(false);
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    try {
-      
-    } catch (error) {
-      console.log(error);
-    }
-  },[attempLogIn])
+    const logInUser = async () => {
+      try {
+        const res = axios.get(`http://localHost:5023/login`, {
+          email: email,
+          password: password,
+        });
+
+        setUser(res.data.Token);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (attempLogIn) logInUser();
+  }, [attempLogIn]);
+
+  useEffect(() => {
+    if(user) handleHomepage()
+  }, [user])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAttempt(true)
+    setAttempt(true);
   };
 
   const handleReset = () => {
@@ -35,32 +49,32 @@ const Login = () => {
   };
   return (
     <>
-      <div class="header" />
-      <div class="primary-container">
+      <div className="header" />
+      <div className="primary-container">
         <h2>Keji Banking App</h2>
-        <form onSubmit={handleSubmit} class="secondary-container">
-          <div class="input-line">
-            <label htmlFor="Username" class="field-label">
-              Username
+        <form onSubmit={handleSubmit} className="secondary-container">
+          <div className="input-line">
+            <label htmlFor="Email" className="field-label">
+              Email
             </label>
             <input
-              type="Username"
-              id="Username"
-              class="input-box"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your Username"
+              type="Email"
+              id="Email"
+              className="input-box"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your Email"
               required
             />
           </div>
-          <div class="input-line">
-            <label htmlFor="password" class="field-label">
+          <div className="input-line">
+            <label htmlFor="password" className="field-label">
               Password
             </label>
             <input
               type="password"
               id="password"
-              class="input-box"
+              className="input-box"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
