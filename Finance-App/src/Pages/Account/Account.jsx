@@ -5,17 +5,17 @@ const Account = () => {
   return (
     <>
       <Header/>
-      <div class = "primary-container">
+      <div className = "primary-container">
         <h2>Edit Your Account Information</h2>
-        <form class = "secondary-container" id = "account-form">
-          <div class = "input-line">
-            <label for = "account-first-name" class = "field-label">First Name: </label>
-            <input type = "text" id = "account-first-name" name = "account-first-name" class = "input-box" required/>
+        <form className = "secondary-container" id = "account-form">
+          <div className = "input-line">
+            <label htmlFor = "account-first-name" className = "field-label">First Name: </label>
+            <input type = "text" id = "account-first-name" name = "account-first-name" className = "input-box" required/>
           </div>
           
-          <div class = "input-line">
-            <label for = "account-last-name" class = "field-label">Last Name: </label>
-            <input type = "text" id = "account-last-name" name = "account-last-name" class = "input-box" required/>
+          <div className = "input-line">
+            <label htmlFor = "account-last-name" className = "field-label">Last Name: </label>
+            <input type = "text" id = "account-last-name" name = "account-last-name" className = "input-box" required/>
           </div>
 
           

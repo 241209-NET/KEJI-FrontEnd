@@ -13,12 +13,12 @@ const Login = () => {
   useEffect(() => {
     const logInUser = async () => {
       try {
-        const res = axios.get(`http://localHost:5023/login`, {
+        const res = await axios.post(`http://localHost:5023/login`, {
           email: email,
           password: password,
         });
 
-        setUser(res.data.Token);
+        setUser(res.data.token);
       } catch (error) {
         console.log(error);
       }
@@ -28,8 +28,8 @@ const Login = () => {
   }, [attempLogIn]);
 
   useEffect(() => {
-    if(user) handleHomepage()
-  }, [user])
+    if (user) handleHomepage();
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,8 +45,9 @@ const Login = () => {
   };
 
   const handleHomepage = () => {
-    navigate("/homepage");
+    navigate("/homepage", {state: user});
   };
+  
   return (
     <>
       <div className="header" />

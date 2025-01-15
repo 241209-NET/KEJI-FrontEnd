@@ -5,13 +5,13 @@ const Exchange = () => {
   return (
     <>
       <Header/>
-      <div class = "primary-container">
+      <div className = "primary-container">
         <h2>Exchange Balance From ???</h2>
-        <form class = "secondary-container" id = "exchange-form">
+        <form className = "secondary-container" id = "exchange-form">
           
-          <div class = "input-line">
-            <label for = "exchange-currency" class = "field-label">Currency: </label>
-            <input type = "text" name = "exchange-currency" class = "input-box" placeholder = "USD" minLength = {3} maxLength = {3} required/>
+          <div className = "input-line">
+            <label htmlFor = "exchange-currency" className = "field-label">Currency: </label>
+            <input type = "text" name = "exchange-currency" className = "input-box" placeholder = "USD" minLength = {3} maxLength = {3} required/>
           </div>
 
           <input type = "submit" value="Exchange"/>

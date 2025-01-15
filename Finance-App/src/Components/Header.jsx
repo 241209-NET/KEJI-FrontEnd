@@ -3,7 +3,7 @@ import "./Header_NavBar.css"
 
 const Header = () => {
     return (
-        <div class = "header">
+        <div className = "header">
             <NavBar/>
         </div>
     )
