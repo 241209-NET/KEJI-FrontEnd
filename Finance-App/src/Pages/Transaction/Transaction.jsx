@@ -13,12 +13,10 @@ const Transaction = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { state } = useLocation();
 
-  console.log(state)
-
   useEffect(() => {
     const createActivity = async () => {
       try {
-        await axios.post(`http://localHost:5023/api/Activity`, {
+        await axios.post(`${import.meta.env.VITE_API}/api/Activity`, {
           name: merchant,
           amount: amount,
           description: description,

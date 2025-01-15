@@ -16,7 +16,7 @@ const SignUp = () => {
   useEffect(() => {
     const registeUser = async () => {
       try {
-        const res = await axios.post(`http://localHost:5023/register`, {
+        const res = await axios.post(`${import.meta.env.VITE_API}/register`, {
           userName: username,
           email: email,
           password: password,

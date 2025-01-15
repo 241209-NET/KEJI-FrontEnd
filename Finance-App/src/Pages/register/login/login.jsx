@@ -13,7 +13,7 @@ const Login = () => {
   useEffect(() => {
     const logInUser = async () => {
       try {
-        const res = await axios.post(`http://localHost:5023/login`, {
+        const res = await axios.post(`${import.meta.env.VITE_API}/login`, {
           email: email,
           password: password,
         });
