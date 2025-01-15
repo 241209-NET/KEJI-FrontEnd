@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { any } from "prop-types";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -10,23 +11,40 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [user, setUser] = useState();
+  const newAccountId = Math.round(Math.random() * 1000000000);
 
   useEffect(() => {
     const registeUser = async () => {
       try {
-        const res = await axios.post(`http://localHost:5023/register`, {
+        const res = await axios.post(`${import.meta.env.VITE_API}/register`, {
           userName: username,
           email: email,
           password: password,
+          accountId: newAccountId,
         });
 
         setUser(res.data);
       } catch (error) {
-        console.log(`It looks like there was a ${error.message} our server might be down at the moment`);
+        console.log(
+          `It looks like there was a ${error.message} our server might be down at the moment`
+        );
       }
     };
 
-    if (isSubmitted) registeUser();
+    const createAccount = async () => {
+      try {
+        const res = await axios.post("http://localHost:5023/api/Account", {
+          accountId: newAccountId,
+          balance: 500,
+        });
+
+        if (res.data) registeUser();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (isSubmitted) createAccount();
   }, [isSubmitted]);
 
   useEffect(() => {
