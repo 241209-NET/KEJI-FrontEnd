@@ -1,6 +1,7 @@
 import "./Header_NavBar.css"
 import logo from "./keji-logo.png"
 import { useLocation, useNavigate } from 'react-router-dom';
+
 const NavBar = () => {
     const navigate = useNavigate();
     const {state} = useLocation();

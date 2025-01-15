@@ -1,14 +1,20 @@
 import "./homepage.css";
 import NavBar from "../../Components/NavBar.jsx"
+import { useLocation } from "react-router-dom"
 
 const Homepage = () => {
+
+  const { state } = useLocation();
+  
+  console.log(state);
+
   return (
     <div>
       <NavBar/>
       <main className="main-content">
         <h1>Dashboard</h1>
         <div className="cards-container">
-          {/* Card 1: Account Balance */}
+
           <div className="card">
             <h3>Account Balance</h3>
           </div>
