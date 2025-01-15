@@ -9,8 +9,21 @@ const Exchange = () => {
   const [currency, setCurrency] = useState(state.account.currency);
   const [status, setStatus] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const HTTPbase = 'https://api.frankfurter.app/latest?from=';
+  const HTTPmidPoint = '&to=';
+  var rate = 1;
 
   useEffect(() => {
+    const fetchCurrency = async() => {
+      console.log(state);
+      fetch(HTTPbase + state.account.currency + HTTPmidPoint + currency)
+      .then(response => response.json())
+      .then(data => {
+        rate = data.rates.EUR;
+        console.log(rate);
+      });
+    };
+    
     const setCurrency = async () => {
       try {
         const res = await axios.patch(
@@ -26,6 +39,7 @@ const Exchange = () => {
     };
 
     if (isSubmitted) {
+      fetchCurrency();
       state.account.currency = currency
       setCurrency();
     }
