@@ -150,12 +150,13 @@ const Statement = () => {
           </div>
         </div>
       )}
-      <div className="secondary-container_2">
-        <div className="statement-line">
+      <div className="secondary-container_2" style={{ height: 55}}>
+        <div class="input-line" style={{ paddingTop: 0}}>
+          
           <label
             htmlFor="deposits-withdrawals"
             className="minor-field-label"
-            style={{ marginBottom: 15 }}
+            style={{ marginBottom: 17 }}
           >
             Statement Date:
           </label>
@@ -163,7 +164,8 @@ const Statement = () => {
             type="month"
             name="statement-date"
             id="date"
-            style={{ color: "black" }}
+            class="input-box"
+            style={{ height:"15px" }}
             value={date}
             max={`${today.getFullYear()}-${month < 10 ? `0${month}` : month}`}
             min={

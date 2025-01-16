@@ -74,3 +74,8 @@ ul {
   height: 50px;
   background-color: #b4a7d6ff;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: black;
+  background-color: black;
+}
