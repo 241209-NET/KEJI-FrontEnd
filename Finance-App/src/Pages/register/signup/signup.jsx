@@ -12,6 +12,8 @@ const SignUp = () => {
   const [user, setUser] = useState();
   const newAccountId = Math.round(Math.random() * 1000000000);
 
+  console.log(import.meta.env.VITE_API)
+
   useEffect(() => {
     const registeUser = async () => {
       try {
