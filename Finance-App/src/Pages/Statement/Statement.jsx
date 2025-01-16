@@ -3,8 +3,11 @@ import Header from "../../Components/Header.jsx";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { GetExchangeRate } from "../../GetExchangeRate.jsx";
+import { FormatAsCurrency } from "../../GetExchangeRate.jsx";
 
 const Statement = () => {
+  const { state } = useLocation();
   const today = new Date();
   const month = today.getMonth() + 1;
   const [date, setDefaultDate] = useState(
@@ -14,10 +17,13 @@ const Statement = () => {
   const [deposits, setDeposits] = useState();
   const [withdrawls, setWithdrawls] = useState();
   const [activities, setActivities] = useState();
+  
+  const [currency] = useState(state.account.currency);
+  const [exchangeRate, setExchangeRate] = useState(1);
 
-  const { state } = useLocation();
 
   useEffect(() => {
+    GetExchangeRate('USD',currency).then((result) => setExchangeRate(result));
     if (state.account.statements.length === 0) {
       if (
         date === `${today.getFullYear()}-${month < 10 ? `0${month}` : month}`
@@ -65,14 +71,20 @@ const Statement = () => {
           );
           setActivities(stateStatement.activities);
           setWithdrawls(
-            stateStatement.activities
-              .filter((o) => o.amount < 0)
-              .reduce((sum, o) => sum + o.amount, 0)
+            FormatAsCurrency(
+              stateStatement.activities
+                .filter((o) => o.amount < 0)
+                .reduce((sum, o) => sum + o.amount, 0) * exchangeRate,
+                currency
+            )
           );
           setDeposits(
-            stateStatement.activities
-              .filter((o) => o.amount > 0)
-              .reduce((sum, o) => sum + o.amount, 0)
+            FormatAsCurrency(
+              stateStatement.activities
+                .filter((o) => o.amount > 0)
+                .reduce((sum, o) => sum + o.amount, 0) * exchangeRate,
+                currency
+            )
           );
           setCurrentMonthMessage();
         } else {
@@ -129,7 +141,7 @@ const Statement = () => {
                 <li key={index}>
                   <div className="activity-background">
                     <section className="activity-info" id="activity-date">
-                      {activity.date}
+                      {activity.activityDate}
                     </section>
                     <section className="activity-info" id="activity-vendor">
                       {activity.name}
@@ -141,7 +153,7 @@ const Statement = () => {
                       {activity.description}
                     </section>
                     <section className="activity-info" id="activity-amount">
-                      {activity.amount}
+                      {FormatAsCurrency(activity.amount * exchangeRate, currency)}
                     </section>
                   </div>
                 </li>
@@ -151,7 +163,7 @@ const Statement = () => {
         </div>
       )}
       <div className="secondary-container_2" style={{ height: 55}}>
-        <div class="input-line" style={{ paddingTop: 0}}>
+        <div className="input-line" style={{ paddingTop: 0}}>
           
           <label
             htmlFor="deposits-withdrawals"
@@ -164,7 +176,7 @@ const Statement = () => {
             type="month"
             name="statement-date"
             id="date"
-            class="input-box"
+            className="input-box"
             style={{ height:"15px" }}
             value={date}
             max={`${today.getFullYear()}-${month < 10 ? `0${month}` : month}`}

@@ -1,4 +1,6 @@
 export async function GetExchangeRate(oldCurrency, newCurrency){
+    oldCurrency = oldCurrency.toUpperCase();
+    newCurrency = newCurrency.toUpperCase();
     try {
         if(oldCurrency != newCurrency) {
             const response = await fetch(GetExchangeRateEndpointURL(oldCurrency, newCurrency));
@@ -24,4 +26,9 @@ export function GetExchangeRateEndpointURL(oldCurrency, newCurrency) {
     const HTTPbase = 'https://api.frankfurter.app/latest?from=';
     const HTTPmidPoint = '&to=';
     return HTTPbase + oldCurrency + HTTPmidPoint + newCurrency;
+}
+
+export function FormatAsCurrency(amount, currency)
+{
+    return Intl.NumberFormat('en', {currency: currency, style: 'currency'}).format(amount);
 }
