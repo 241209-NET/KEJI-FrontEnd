@@ -19,7 +19,7 @@ const Transaction = () => {
   useEffect(() => {
     const createActivity = async () => {
       try {
-        await axios.post(`${import.meta.env.VITE_API}/api/Activity`, {
+        const response =  await axios.post(`${import.meta.env.VITE_API}/api/Activity`, {
           name: merchant,
           amount: amount,
           description: description,
@@ -27,6 +27,14 @@ const Transaction = () => {
           activityDate: date,
           accountId: state.account.accountId,
         });
+
+        state.account.activities.push(response.data);
+
+        const updatedBalance = state.account.balance + parseFloat(amount);
+        state.account.balance = updatedBalance;
+
+
+
       } catch (error) {
         console.log(error);
       }

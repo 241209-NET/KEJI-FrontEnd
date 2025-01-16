@@ -44,6 +44,52 @@ button {
   cursor: pointer;
 }
 
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 button:hover {
   background-color: #0056b3;
+}
+
+#output-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  text-align: center;
+  max-width: 400px;
+  align-self: center; /* Centers the div within the form */
+
+}
+
+.output-message {
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.error-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #f44336;
+  border-radius: 5px;
+  background-color: #fdecea;
+  text-align: center;
+  max-width: 300px;
+  align-self: center;
+}
+
+.error-message {
+  font-size: 1rem;
+  color: #f44336;
 }
