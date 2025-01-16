@@ -88,7 +88,31 @@ const Statement = () => {
           );
           setCurrentMonthMessage();
         } else {
-          console.log("generating statement.....");
+          const creatingStatement = async () => {
+            try {
+              const month_day = date.split("-");
+              const statement_res = await axios.get(
+                `${import.meta.env.VITE_API}/api/Statement/${month_day[1]}/01/${
+                  month_day[0]
+                }/${state.account.accountId}`
+              );
+  
+              const activityIds = state.account.activities
+                .filter((a) => a.activityDate.includes(date))
+                .map((a) => a.activityId);
+  
+              await axios.patch(
+                `${import.meta.env.VITE_API}/api/Activity/${
+                  statement_res.data.statementId
+                }`,
+                activityIds
+              );
+            } catch (error) {
+              console.log(error);
+            }
+          };
+          creatingStatement();
+          setCurrentMonthMessage();
         }
       }
     }
