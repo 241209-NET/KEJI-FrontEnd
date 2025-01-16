@@ -106,8 +106,8 @@ function Homepage() {
             <h3>Recent Goal</h3>
             {goalAmount > 0 ? (
               <>
-                <p>Budget Amount: ${goalAmount}</p>
-                <p>Progress: ${progress}</p>
+                <p>Goal Amount: {FormatAsCurrency(goalAmount * exchangeRate,currency)}</p>
+                <p>Progress: {FormatAsCurrency(progress * exchangeRate,currency)}</p>
                 <p>
                   Status:{" "}
                   {progress >= goalAmount
