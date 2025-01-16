@@ -97,7 +97,7 @@ const Transaction = () => {
               name="transaction-date"
               onChange={(e) => setDate(e.target.value)}
               className="input-box"
-              style={{ width: 95 }}
+              style={{ width: 120 }}
               required
             />
 
