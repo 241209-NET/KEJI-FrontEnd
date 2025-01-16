@@ -104,9 +104,10 @@ function Homepage() {
 
           <div className="card">
             <h3>Recent Goal</h3>
-            {goalAmount > 0 ? (=
-                <p>Goal Amount: {FormatAsCurrency(goalAmount,currency)}</p>
-                <p>Progress: {FormatAsCurrency(progress,currency)}</p>=
+            {goalAmount > 0 ? (
+              <>
+                <p>Budget Amount: ${goalAmount}</p>
+                <p>Progress: ${progress}</p>
                 <p>
                   Status:{" "}
                   {progress >= goalAmount
