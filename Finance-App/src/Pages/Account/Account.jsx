@@ -2,6 +2,8 @@ import "./Account.css";
 import Header from "../../Components/Header.jsx";
 
 const Account = () => {
+  
+
   return (
     <>
       <Header/>

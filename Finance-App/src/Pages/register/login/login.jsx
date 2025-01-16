@@ -9,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [attempLogIn, setAttempt] = useState(false);
   const [user, setUser] = useState();
+  const [invalid, setInvalid] = useState();
 
   useEffect(() => {
     const logInUser = async () => {
@@ -20,7 +21,7 @@ const Login = () => {
 
         setUser(res.data.token);
       } catch (error) {
-        console.log(error);
+        setInvalid("Invalid Credentials");
       }
     };
 
@@ -45,9 +46,37 @@ const Login = () => {
   };
 
   const handleHomepage = () => {
-    navigate("/homepage", {state: user});
+    const statmentsIds = user.account.statements.map((s) => s.statementId);
+    let user_copy = { ...user };
+
+    const populateStatements = async () => {
+      try {
+        // Map over the statement IDs and fetch data
+        const updatedStatements = await Promise.all(
+          statmentsIds.map(async (element) => {
+            const res = await axios.get(
+              `${import.meta.env.VITE_API}/api/Statement/${element}`
+            );
+            return res.data; // Return the fetched statement
+          })
+        );
+
+        // Update user_copy with the new statements
+        user_copy.account.statements = updatedStatements;
+
+        // Navigate after all updates are complete
+        navigate("/homepage", { state: user_copy });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    populateStatements();
   };
-  
+
+  const handleClose = () => {
+    setInvalid();
+  };
+
   return (
     <>
       <div className="header" />
@@ -82,6 +111,14 @@ const Login = () => {
               required
             />
           </div>
+          {invalid && (
+            <div className="alert">
+              <span className="closebtn" onClick={handleClose}>
+                &times;
+              </span>
+              {invalid}
+            </div>
+          )}
           <button type="submit" id="login-button">
             Log In
           </button>
