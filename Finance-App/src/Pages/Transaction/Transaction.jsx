@@ -42,7 +42,7 @@ const Transaction = () => {
   }, [isSubmitted]);
 
   const handlesubmit = () => {
-    navigate('/Homepage', {state: state});
+    setTimeout(function() {navigate('/Homepage', {state: state})}, 100);
   }
 
   return (
@@ -65,6 +65,7 @@ const Transaction = () => {
             </label>
             <input
               type="number"
+              step="0.01"
               id="transaction-amount"
               onChange={(e) => setAmount(e.target.value)}
               name="transaction-amount"
