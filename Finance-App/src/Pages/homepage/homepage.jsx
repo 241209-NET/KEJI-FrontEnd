@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import NavBar from "../../Components/NavBar.jsx";
 import { useLocation } from "react-router-dom";
 import { useGoal } from "../../context/GoalContext.jsx";
+import { GetExchangeRate } from "../../GetExchangeRate.jsx";
+import { FormatAsCurrency } from "../../GetExchangeRate.jsx";
 
 function Homepage() {
   const { state } = useLocation();
@@ -11,7 +13,11 @@ function Homepage() {
 
   const [quote, setQuote] = useState({ content: "", author: "" });
 
+  const [currency] = useState(state.account.currency);
+  const [exchangeRate, setExchangeRate] = useState(1);
+
   useEffect(() => {
+    GetExchangeRate('USD',currency).then((result) => setExchangeRate(result));
     async function fetchQuote() {
       try {
         const response = await fetch("http://api.quotable.io/random");
@@ -70,7 +76,7 @@ function Homepage() {
         <div className="cards-container">
           <div className="card">
             <h3>Account Balance</h3>
-            <div><p>{currentBalance}</p></div>
+            <div><p>{FormatAsCurrency(currentBalance*exchangeRate, currency)}</p></div>
           </div>
 
           <div className="card">
