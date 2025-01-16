@@ -39,8 +39,6 @@ function Homepage() {
     if (previousBalance === null) {
       setPreviousBalance(currentBalance);
       previousBalanceRef.current = currentBalance;
-      console.log("=== First mount ===");
-      console.log("Baseline set to:", currentBalance);
       return;
     }
 
@@ -49,15 +47,10 @@ function Homepage() {
     if (diff > 0) {
       setProgress((prev) => {
         const newProgress = prev + diff;
-        console.log(
-          `Balance increased by ${diff}. New total progress = ${newProgress}`
-        );
         return newProgress;
       });
       previousBalanceRef.current = currentBalance;
       setPreviousBalance(currentBalance);
-    } else {
-      console.log("No positive difference or already updated:", diff);
     }
   }, [currentBalance, previousBalance, setPreviousBalance, setProgress]);
 
@@ -107,12 +100,12 @@ function Homepage() {
             <h3>Recent Goal</h3>
             {goalAmount > 0 ? (
               <>
-                <p>Goal Amount: ${goalAmount}</p>
+                <p>Budget Amount: ${goalAmount}</p>
                 <p>Progress: ${progress}</p>
                 <p>
                   Status:{" "}
                   {progress >= goalAmount
-                    ? "Goal Reached! 🎉"
+                    ? "Goal Reached!"
                     : "In Progress"}
                 </p>
               </>
