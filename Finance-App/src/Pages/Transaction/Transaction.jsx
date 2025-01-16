@@ -14,8 +14,6 @@ const Transaction = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  console.log(state)
-
   useEffect(() => {
     const createActivity = async () => {
       try {
@@ -33,7 +31,7 @@ const Transaction = () => {
         const updatedBalance = state.account.balance + parseFloat(amount);
         state.account.balance = updatedBalance;
 
-
+        await axios.patch(`${import.meta.env.VITE_API}/amount/${updatedBalance}/${state.account.accountId}`)
 
       } catch (error) {
         console.log(error);
