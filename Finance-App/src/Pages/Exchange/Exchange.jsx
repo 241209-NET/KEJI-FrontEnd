@@ -1,30 +1,19 @@
 import "./Exchange.css";
+import "../../GetExchangeRate.jsx"
 import Header from "../../Components/Header.jsx";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { GetExchangeRate } from "../../GetExchangeRate.jsx";
 
 const Exchange = () => {
   const { state } = useLocation();
-  const [currency, setCurrency] = useState(state.account.currency);
+  const [currency, setCurrency] = useState(state.account.currency); //defaults to persisted currency
   const [status, setStatus] = useState();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const HTTPbase = 'https://api.frankfurter.app/latest?from=';
-  const HTTPmidPoint = '&to=';
   var rate = 1;
 
   useEffect(() => {
-    //Gets the conversion rate from frankfurter
-    const fetchCurrency = () => {
-      console.log(state);
-      fetch(HTTPbase + state.account.currency + HTTPmidPoint + currency)
-      .then(response => response.json())
-      .then(data => {
-        rate = data.rates[currency];
-        console.log(rate);
-      });
-    };
-
     //Persists the new currency
     const setCurrency = async () => {
       try {
@@ -42,9 +31,12 @@ const Exchange = () => {
 
     //Puts it all together
     if (isSubmitted) {
-      fetchCurrency();
-      state.account.currency = currency
-      setCurrency();
+      rate = GetExchangeRate(state.account.currency, currency);
+      if(rate != -1)
+      {
+        state.account.currency = currency
+        setCurrency();
+      }
     }
   }, [isSubmitted]);
 
