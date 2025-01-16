@@ -25,12 +25,12 @@ const Transaction = () => {
           accountId: state.account.accountId,
         });
 
-        
         state.account.activities.push(response.data);
 
-        // Update the balance based on the amount
         const updatedBalance = state.account.balance + parseFloat(amount);
         state.account.balance = updatedBalance;
+
+
 
       } catch (error) {
         console.log(error);
