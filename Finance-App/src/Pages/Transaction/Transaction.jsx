@@ -2,7 +2,7 @@ import "./Transaction.css";
 import Header from "../../Components/Header.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Transaction = () => {
   const [amount, setAmount] = useState();
@@ -12,6 +12,9 @@ const Transaction = () => {
   const [recurring, setRecurring] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { state } = useLocation();
+  const navigate = useNavigate();
+
+  console.log(state)
 
   useEffect(() => {
     const createActivity = async () => {
@@ -32,6 +35,10 @@ const Transaction = () => {
     if (isSubmitted) createActivity();
   }, [isSubmitted]);
 
+  const handlesubmit = () => {
+    navigate('/Homepage', {state: state});
+  }
+
   return (
     <>
       <Header />
@@ -41,7 +48,7 @@ const Transaction = () => {
           onSubmit={(e) => {
             e.preventDefault();
             setIsSubmitted(true);
-            
+            handlesubmit();
           }}
           className="secondary-container"
           id="transaction-form"

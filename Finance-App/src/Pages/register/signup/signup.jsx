@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { any } from "prop-types";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ const SignUp = () => {
       try {
         const res = await axios.post("http://localHost:5023/api/Account", {
           accountId: newAccountId,
-          balance: 500,
+          balance: 0,
         });
 
         if (res.data) registeUser();
