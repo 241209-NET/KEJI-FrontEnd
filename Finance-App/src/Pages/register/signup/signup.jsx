@@ -12,8 +12,6 @@ const SignUp = () => {
   const [user, setUser] = useState();
   const newAccountId = Math.round(Math.random() * 1000000000);
 
-  console.log(import.meta.env.VITE_API)
-
   useEffect(() => {
     const registeUser = async () => {
       try {
@@ -34,7 +32,7 @@ const SignUp = () => {
 
     const createAccount = async () => {
       try {
-        const res = await axios.post("http://localHost:5023/api/Account", {
+        const res = await axios.post(`${import.meta.env.VITE_API}/api/Account`, {
           accountId: newAccountId,
           balance: 0,
         });
