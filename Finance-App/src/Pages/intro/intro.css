@@ -7,11 +7,13 @@
 }
 
 .hero-content h1 {
+  color: white;
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
 .hero-content p {
+  color: white;
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
